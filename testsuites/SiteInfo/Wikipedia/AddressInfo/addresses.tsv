@@ -1,0 +1,3 @@
+-	comment	handle	segment	mask
++	Home page for all languages	wiki-home	empty-string	http(s)?://(www[.])?wikipedia[.](org|com)(/)?$
++	Archery English page	wiki-archery	wiki/wiki-archery	http(s)?://en[.]wikipedia[.](org|com)/wiki/Archery(/)?$
