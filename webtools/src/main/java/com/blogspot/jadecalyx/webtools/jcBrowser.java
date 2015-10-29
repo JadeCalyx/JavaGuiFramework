@@ -20,11 +20,11 @@ public class jcBrowser {
     
     WebDriver _driver;
     String _site;
-    jcAddressIndex _addressIndex;
+    jcAddressHelper _addressHelper;
     
     public jcBrowser(String browserType, String site) throws Exception {
         _site = site;
-	_addressIndex = new jcAddressIndex(_site);
+	_addressHelper = new jcAddressHelper(_site, "https://wikipedia.org");
 	initDriver(browserType);
     }
     
@@ -34,6 +34,11 @@ public class jcBrowser {
     
     public void Close() {
         _driver.quit();
+    }
+    
+    public void Goto(String siteHandle) {
+        String address = _addressHelper.GetAddress(siteHandle);
+        _driver.navigate().to(address);
     }
     
     private void initDriver(String browserType) {

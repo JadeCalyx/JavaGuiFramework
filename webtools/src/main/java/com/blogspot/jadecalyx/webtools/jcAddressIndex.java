@@ -24,6 +24,10 @@ public class jcAddressIndex {
         loadIndex(_site);
     }
     
+    public jcAddressSet GetAddressSet(String handle) {
+        return _addresses.get(handle);
+    }
+    
     private void loadIndex(String site) throws Exception {
 	int type = 0;
 	int comment = 1;
@@ -38,7 +42,8 @@ public class jcAddressIndex {
 	if (!f.isFile()) {
 	    throw new Exception(String.format("loadIndex unable to find file for site: %s", site));
 	}
-	List<String> lines = Files.readAllLines(f.toPath());
+	
+        List<String> lines = Files.readAllLines(f.toPath());
 	for(int i = 0; i < lines.size(); i++) {
 	    String[] parts = lines.get(i).split("\t");
 	    if (parts.length < 1) {
@@ -54,6 +59,7 @@ public class jcAddressIndex {
 		}
 	    }
 	}
+                
     }
     
     
