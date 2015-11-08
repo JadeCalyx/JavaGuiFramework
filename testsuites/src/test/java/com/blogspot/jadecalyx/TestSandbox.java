@@ -53,7 +53,9 @@ public class TestSandbox {
         jcBrowser br = bf.GetNewBrowser("firefox");
         System.out.println(br.GetHello());
         System.out.println(File.pathSeparator);
-        br.Goto("wiki-home");
+        br.GotoPage("wiki-english-home");
+	String h = br.GetPage().GetHandle();
+	System.out.println(h);
         Thread.sleep(1000);
         br.Close();
         

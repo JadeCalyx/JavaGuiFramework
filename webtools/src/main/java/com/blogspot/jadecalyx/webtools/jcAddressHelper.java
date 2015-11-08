@@ -25,5 +25,10 @@ public class jcAddressHelper {
         return _prefix + "/" + currSet.GetSegment();
     }
     
+    public String GetHandleForUrl(String fullUrl) {
+	String handle = _addressIndex.GetUrlMatch(fullUrl);
+	return handle;
+    }
+    
     
 }

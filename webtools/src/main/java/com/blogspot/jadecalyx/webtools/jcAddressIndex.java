@@ -28,6 +28,16 @@ public class jcAddressIndex {
         return _addresses.get(handle);
     }
     
+    public String GetUrlMatch(String url) {
+	Set keys = _addresses.keySet();
+	for (String key: _addresses.keySet()) {
+	    if (_addresses.get(key).Matches(url)) {
+		return key;
+	    }
+	}
+	return "dummy";
+    }
+    
     private void loadIndex(String site) throws Exception {
 	int type = 0;
 	int comment = 1;

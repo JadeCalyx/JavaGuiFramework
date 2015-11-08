@@ -1,0 +1,3 @@
+-	comment	handle	type	detail
++	search box	search-box	css	input[type="search"][name="search"]
++	go button	go-button	css	input[type="submit][name="go"]
