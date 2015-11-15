@@ -47,15 +47,17 @@ public class TestSandbox {
     @Test
     public void hello() throws Exception {
         System.out.println("start");
-	String p = System.getProperty("file.separator");
+		String p = System.getProperty("file.separator");
         String curDir = System.getProperty("user.dir");
         jcBrowserFactory bf = new jcBrowserFactory("Wikipedia");
         jcBrowser br = bf.GetNewBrowser("firefox");
         System.out.println(br.GetHello());
         System.out.println(File.pathSeparator);
         br.GotoPage("wiki-english-home");
-	String h = br.GetPage().GetHandle();
-	System.out.println(h);
+		br.GetPage().SetText("search-box", "archery");
+		br.GetPage().Click("go-button");
+		String h = br.GetPage().GetHandle();
+		System.out.println(h);
         Thread.sleep(1000);
         br.Close();
         

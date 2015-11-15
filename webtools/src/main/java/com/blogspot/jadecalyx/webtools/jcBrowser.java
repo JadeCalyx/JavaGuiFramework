@@ -28,7 +28,7 @@ public class jcBrowser {
         _site = site;
 	_addressHelper = new jcAddressHelper(_site, "https://en.wikipedia.org");
 	initDriver(browserType);
-	_pageFactory = new jcPageFactory(_site);
+	_pageFactory = new jcPageFactory(_site, _driver);
     }
     
     public String GetHello() {
@@ -44,12 +44,11 @@ public class jcBrowser {
         _driver.navigate().to(address);
     }
     
-    public jcWebPage GetPage() {
-	String u = _driver.getCurrentUrl();
-	String handle = _addressHelper.GetHandleForUrl(u);
-	_currPage page = _pageFactory.GetPage(handle, _currPage);
-	return new jcWebPage("wiki-english-home");
-	
+    public jcWebPage GetPage() throws Exception {
+		String u = _driver.getCurrentUrl();
+		String handle = _addressHelper.GetHandleForUrl(u);
+		_currPage = _pageFactory.GetPage(handle, _currPage);
+		return _currPage;
     }
     
     

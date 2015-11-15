@@ -19,11 +19,11 @@ public class jcPageObjectHelper {
     String _handle;
     Map<String, Stack<jcPageObjectSet>> _objectIndex; 
     
-    public jcPageObjectHelper(String site, String pageHandle) {
-	_site = site;
-	_handle = pageHandle;
-	_objectIndex = new HashMap<>();
-	//load index
+    public jcPageObjectHelper(String site, String pageHandle) throws Exception {
+		_site = site;
+		_handle = pageHandle;
+		_objectIndex = new HashMap<>();
+		loadIndex(_site, _handle);
 	
     }
 	
@@ -31,7 +31,7 @@ public class jcPageObjectHelper {
 		return _objectIndex.get(handle);
 	}
     
-    private void loadIndex(String site) throws Exception {
+    private void loadIndex(String site, String pageHandle) throws Exception {
 		int type = 0;
 		int comment = 1;
 		int handle = 2;
@@ -40,7 +40,7 @@ public class jcPageObjectHelper {
 	
         String s = System.getProperty("file.separator");
         String runPath = System.getProperty("user.dir");
-		String fileToRead = _site + ".tsv";
+		String fileToRead = pageHandle + ".tsv";
 		String fullPath = String.join(s, runPath, "SiteInfo", site, "PageInfo", fileToRead);
 		File f = new File(fullPath);
 		if (!f.isFile()) {
