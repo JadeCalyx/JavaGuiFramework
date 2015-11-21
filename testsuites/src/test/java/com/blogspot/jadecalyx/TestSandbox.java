@@ -59,6 +59,8 @@ public class TestSandbox {
 		String h = br.GetPage().GetHandle();
 		System.out.println(h);
         Thread.sleep(1000);
+		br.GetPage().Click("sidebar-contents-link");
+		Thread.sleep(1000);
         br.Close();
         
         System.out.println("done");

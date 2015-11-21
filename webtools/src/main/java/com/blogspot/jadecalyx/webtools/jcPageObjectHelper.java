@@ -17,7 +17,7 @@ public class jcPageObjectHelper {
     
     String _site;
     String _handle;
-    Map<String, Stack<jcPageObjectSet>> _objectIndex; 
+    Map<String, List<jcPageObjectSet>> _objectIndex; 
     
     public jcPageObjectHelper(String site, String pageHandle) throws Exception {
 		_site = site;
@@ -28,15 +28,42 @@ public class jcPageObjectHelper {
     }
 	
 	public Stack<jcPageObjectSet> GetLookupDetails(String handle) {
-		return _objectIndex.get(handle);
+		return expandLookupDetails(null, _objectIndex.get(handle));
+	}
+	
+	private Stack<jcPageObjectSet> expandLookupDetails(List<jcPageObjectSet> returnSet,
+			List<jcPageObjectSet> incomingSet) {
+		if (returnSet == null) {returnSet = new Stack<>();}
+		while (incomingSet.size() > 0) {
+			jcPageObjectSet currSet = incomingSet.get(incomingSet.size() - 1);
+			incomingSet.remove(incomingSet.size() - 1);
+			if (currSet.GetType().equals("css")) {
+				returnSet.add(currSet);
+			}
+			else {
+				if (currSet.GetType().equals("handle")) {
+					List<jcPageObjectSet> expandedSet = GetLookupDetails(currSet.GetDetails());
+					while (expandedSet.size() > 0) {
+						returnSet.add(expandedSet.get(expandedSet.size() - 1));
+						expandedSet.remove(expandedSet.size() - 1);
+					}
+				}
+			}
+		}
+		Stack<jcPageObjectSet> orderedReturnSet = new Stack<>();
+		while (returnSet.size() > 0) {
+			orderedReturnSet.push(returnSet.get(returnSet.size() - 1));
+			returnSet.remove(returnSet.size() - 1);
+		}
+		//return orderedReturnSet;
+		return orderedReturnSet;
 	}
     
     private void loadIndex(String site, String pageHandle) throws Exception {
 		int type = 0;
-		int comment = 1;
-		int handle = 2;
-		int lookupType = 3;
-		int lookupDetails = 4;
+		int handle = 1;
+		int lookupType = 2;
+		int lookupDetails = 3;
 	
         String s = System.getProperty("file.separator");
         String runPath = System.getProperty("user.dir");
@@ -56,14 +83,18 @@ public class jcPageObjectHelper {
 			if (parts[type].equalsIgnoreCase("-")) {
 				continue;
 			}
+			//load the associated file into index
+			if (parts[type].equals("++")) {
+				loadIndex(site, parts[handle]);
+				continue;
+			}
 			if (parts[type].equalsIgnoreCase("+")) {
-				//parts.length - 3 mod 2 = 0
-				if (((parts.length - 3) % 2) == 0) {
-					Stack<jcPageObjectSet> currStack = new Stack<jcPageObjectSet>();
+				if (((parts.length - 2) % 2) == 0) {
+					List<jcPageObjectSet> currList = new ArrayList<jcPageObjectSet>();
 					for (int j = (parts.length - 1); j > handle; j -= 2) {
-						currStack.push(new jcPageObjectSet(parts[j-1], parts[j]));
+						currList.add(new jcPageObjectSet(parts[j-1], parts[j]));
 					}
-					_objectIndex.put(parts[handle], currStack);
+					_objectIndex.put(parts[handle], currList);
 				}
 			}
 		}

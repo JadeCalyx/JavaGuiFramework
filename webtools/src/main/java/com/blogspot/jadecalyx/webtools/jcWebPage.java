@@ -54,12 +54,12 @@ public class jcWebPage {
 		else {
 			wel = currElement.findElements(By.cssSelector(currSet.GetDetails()));
 		}
-			if (!wel.isEmpty()) {
-				return extractElement(wel.get(0), cssStack);
-			}
-			else {
-				return null;
-			}
+		if (!wel.isEmpty()) {
+			return extractElement(wel.get(0), cssStack);
+		}
+		else {
+			return null;
+		}
 	}
 	
 	

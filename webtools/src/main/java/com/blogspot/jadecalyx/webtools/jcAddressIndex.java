@@ -39,36 +39,35 @@ public class jcAddressIndex {
     }
     
     private void loadIndex(String site) throws Exception {
-	int type = 0;
-	int comment = 1;
-	int handle = 2;
-	int segment = 3;
-	int mask = 4;
+		int type = 0;
+		int handle = 1;
+		int segment = 2;
+		int mask = 3;
 	
         String s = System.getProperty("file.separator");
         String runPath = System.getProperty("user.dir");
-	String fullPath = String.join(s, runPath, "SiteInfo", site, "AddressInfo", "addresses.tsv");
-	File f = new File(fullPath);
-	if (!f.isFile()) {
-	    throw new Exception(String.format("loadIndex unable to find file for site: %s", site));
-	}
+		String fullPath = String.join(s, runPath, "SiteInfo", site, "AddressInfo", "addresses.tsv");
+		File f = new File(fullPath);
+		if (!f.isFile()) {
+			throw new Exception(String.format("loadIndex unable to find file for site: %s", site));
+		}
 	
         List<String> lines = Files.readAllLines(f.toPath());
-	for(int i = 0; i < lines.size(); i++) {
-	    String[] parts = lines.get(i).split("\t");
-	    if (parts.length < 1) {
-		continue;
-	    }
-	    if (parts[type].equalsIgnoreCase("-")) {
-		continue;
-	    }
-	    if (parts[type].equalsIgnoreCase("+")) {
-		if (parts.length > 4) { //must have all parts to process, else skip
-		    if (parts[segment].equals("empty-string")) {parts[segment] = "";}
-		    _addresses.put(parts[handle], new jcAddressSet(parts[segment], parts[mask]));
+		for(int i = 0; i < lines.size(); i++) {
+			String[] parts = lines.get(i).split("\t");
+			if (parts.length < 1) {
+			continue;
+			}
+			if (parts[type].equalsIgnoreCase("-")) {
+			continue;
+			}
+			if (parts[type].equalsIgnoreCase("+")) {
+				if (parts.length > 3) { //must have all parts to process, else skip
+					if (parts[segment].equals("empty-string")) {parts[segment] = "";}
+					_addresses.put(parts[handle], new jcAddressSet(parts[segment], parts[mask]));
+				}
+			}
 		}
-	    }
-	}
                 
     }
     

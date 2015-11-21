@@ -1,0 +1,5 @@
+-	handle	type	detail
++	wiki-menu-panel	css	div[id="mw-panel"]
++	wiki-logo	handle	wiki-menu-panel	css	a[class="mw-wiki-logo"]
++	sidebar-main-page-link	handle	wiki-menu-panel	css	li[id="n-mainpage-description"]	css	a[title^="Visit the main page"]
++	sidebar-contents-link	handle	wiki-menu-panel	css	li[id="n-contents"]	css	a[title="Guides to browsing Wikipedia"]

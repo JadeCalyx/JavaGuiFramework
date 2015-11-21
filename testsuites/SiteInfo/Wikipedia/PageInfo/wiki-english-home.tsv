@@ -1,3 +1,4 @@
--	comment	handle	type	detail
-+	search box	search-box	css	input[type="search"][name="search"]
-+	go button	go-button	css	input[type="submit"][name="go"]
+-	handle	type	detail
+++	left-sidebar
++	search-box	css	input[type="search"][name="search"]
++	go-button	css	input[type="submit"][name="go"]

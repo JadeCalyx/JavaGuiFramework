@@ -1,4 +1,5 @@
--	comment	handle	segment	mask
-+	Home page for all languages	wiki-home	empty-string	http(s)?://(www[.])?wikipedia[.](org|com)(/)?$
-+	Archery English page	wiki-archery	wiki/wiki-archery	http(s)?://en[.]wikipedia[.](org|com)/wiki/Archery(/)?$
-+	Wikipedia English Home page	wiki-english-home	empty-string	http(s)?://en[.]wikipedia[.](org|com)/wiki/Main_Page(/)?$
+-	handle	segment	mask
++	wiki-home	empty-string	http(s)?://(www[.])?wikipedia[.](org|com)(/)?$
++	wiki-archery	wiki/wiki-archery	http(s)?://en[.]wikipedia[.](org|com)/wiki/Archery(/)?$
++	wiki-english-home	empty-string	http(s)?://en[.]wikipedia[.](org|com)/wiki/Main_Page(/)?$
++	wiki-contents	wiki/Portal:Contents	http(s)?://en[.]wikipedia[.](org|com)/wiki/Portal:Contents(/)?$
