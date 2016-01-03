@@ -44,7 +44,7 @@ public class TestSandbox {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-    @Test
+    //@Test
     public void hello() throws Exception {
         System.out.println("start");
 		String p = System.getProperty("file.separator");

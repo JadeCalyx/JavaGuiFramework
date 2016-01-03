@@ -42,6 +42,20 @@ public class jcWebPage {
 		we.sendKeys(textToSet);
 	}
 	
+        public List<WebElement> GetWebList(String objectHandle)
+        {
+            Stack<jcPageObjectSet> lookupInfo = _pageObjectHelper.GetLookupDetails(objectHandle);
+            WebElement el = extractElement(null, lookupInfo);
+            List<WebElement> returnList = new ArrayList<WebElement>();
+            List<WebElement> elements = el.findElements(By.cssSelector("li"));
+            for (WebElement e : elements)
+            {
+                returnList.add(e);
+            }
+            return returnList;
+        }
+
+        
 	private WebElement extractElement(WebElement currElement, Stack<jcPageObjectSet> cssStack) {
 		if (cssStack.empty()) {
 			return currElement;

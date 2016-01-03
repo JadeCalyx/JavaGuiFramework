@@ -12,9 +12,11 @@ package com.blogspot.jadecalyx.webtools;
 public class jcBrowserFactory {
     
     String _site;
+    String _prefix;
     
-    public jcBrowserFactory(String site) {
+    public jcBrowserFactory(String site, String prefix) {
         _site = site;
+        _prefix = prefix;
     }
     
     public String GetHello() {
@@ -22,7 +24,7 @@ public class jcBrowserFactory {
     }
     
     public jcBrowser GetNewBrowser(String browserType) throws Exception {
-        return new jcBrowser(browserType, _site);
+        return new jcBrowser(browserType, _site, _prefix);
     }
     
     
