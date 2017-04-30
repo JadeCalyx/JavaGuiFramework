@@ -27,9 +27,11 @@ public class SearchTest {
     
     private jcBrowser _browser;
     private jcBrowserFactory _browserFactory;
+	private PropertyReader _props;
 
-    public SearchTest() {
-        _browserFactory = new jcBrowserFactory("Wikipedia");
+    public SearchTest() throws Exception {
+		_props = new PropertyReader("prod");
+        _browserFactory = new jcBrowserFactory("Wikipedia", _props.GetProperty("WebPrefix"));
     }
     
     @BeforeClass

@@ -1,0 +1,20 @@
+{
+	"address-list": 
+	[
+		{
+			"handle": "main-page",
+			"segment": "wiki/Main_Page",
+			"mask": "^http(s)?://.+/wiki/Main_Page$"
+		},
+		{
+			"handle": "archery-page",
+			"segment": "wiki/Archery",
+			"mask": "^http(s)?://.+/wiki/Archery$"
+		},
+		{
+			"handle": "view-history-page",
+			"segment": "dummy",
+			"mask": "^http(s)?://.+/w/index.php[?]title=[a-z,A-Z,_]+(&offset=&limit=[0-9]([0-9])?([0-9])?)?&action=history"
+		}
+	]
+}

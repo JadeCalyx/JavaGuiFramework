@@ -1,0 +1,66 @@
+{
+	"object-list":
+	[
+		{
+			"handle": "wiki-menu-panel",
+			"lookup":
+			[
+				{
+					"type": "css",
+					"detail": "div[id=\"mw-panel\"]"
+				}
+			]
+		},
+		{
+			"handle": "wiki-logo",
+			"lookup": 
+			[
+				{
+					"type": "handle",
+					"detail": "wiki-menu-panel"
+				},
+				{
+					"type": "css",
+					"detail": "a[class=\"mw-wiki-logo\"]"
+				}
+			]
+		},
+		{
+			"handle": "sidebar-main-page-link",
+			"lookup": 
+			[
+				{
+					"type": "handle",
+					"detail": "wiki-menu-panel"
+				},
+				{
+					"type": "css",
+					"detail": "li[id=\"n-mainpage-description\"]"
+				},
+				{
+					"type": "css",
+					"detail": "a[title^=\"Visit the main page\"]"
+				}
+			]
+		},
+		{
+			"handle": "sidebar-contents-link",
+			"lookup": 
+			[
+				{
+					"type": "handle",
+					"detail": "wiki-menu-panel"
+				},
+				{
+					"type": "css",
+					"detail": "li[id=\"n-contents\"]"
+				},
+				{
+					"type": "css",
+					"detail": "a[title=\"Guides to browsing Wikipedia\"]"
+				}
+			]
+		}
+	],
+	"include-list": []
+}

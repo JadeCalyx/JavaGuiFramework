@@ -1,0 +1,194 @@
+{
+	"object-list":
+	[
+		{
+			"handle": "menu-head",
+			"lookup":
+			[
+				{
+					"type": "css",
+					"detail": "div[id=\"mw-head\"]"
+				}
+			]
+		},
+		{
+			"handle": "menu-right-navigation",
+			"lookup": 
+			[
+				{
+					"type": "handle",
+					"detail": "menu-head"
+				},
+				{
+					"type": "css",
+					"detail": "div[id=\"right-navigation\"]"
+				}
+			]
+		},
+		{
+			"handle": "personal-nav",
+			"lookup": 
+			[
+				{
+					"type": "handle",
+					"detail": "menu-head"
+				},
+				{
+					"type": "css",
+					"detail": "div[id=\"p-personal\"]"
+				}
+			]
+		},
+		{
+			"handle": "create-account-anchor",
+			"lookup": 
+			[
+				{
+					"type": "handle",
+					"detail": "personal-nav"
+				},
+				{
+					"type": "css",
+					"detail": "li[id=\"n-contents\"]"
+				},
+				{
+					"type": "css",
+					"detail": "li[id=\"pt-createaccount\"]"
+				},
+				{
+					"type": "css",
+					"detail": "a"
+				}
+			]
+		},
+		{
+			"handle": "not-logged-in",
+			"lookup": 
+			[
+				{
+					"type": "handle",
+					"detail": "personal-nav"
+				},
+				{
+					"type": "css",
+					"detail": "li[id=\"pt-userpage\"]"
+				},
+				{
+					"type": "css",
+					"detail": "span"
+				}
+			]
+		},
+		{
+			"handle": "talk-anchor",
+			"lookup": 
+			[
+				{
+					"type": "handle",
+					"detail": "personal-nav"
+				},
+				{
+					"type": "css",
+					"detail": "li[id=\"pt-mytalk\"]"
+				},
+				{
+					"type": "css",
+					"detail": "a"
+				}
+			]
+		},
+		{
+			"handle": "contributions-anchor",
+			"lookup": 
+			[
+				{
+					"type": "handle",
+					"detail": "personal-nav"
+				},
+				{
+					"type": "css",
+					"detail": "li[id=\"pt-mycontris\"]"
+				},
+				{
+					"type": "css",
+					"detail": "a"
+				}
+			]
+		},
+		{
+			"handle": "login-anchor",
+			"lookup": 
+			[
+				{
+					"type": "handle",
+					"detail": "personal-nav"
+				},
+				{
+					"type": "css",
+					"detail": "li[id=\"pt-login\"]"
+				},
+				{
+					"type": "css",
+					"detail": "a"
+				}
+			]
+		},
+		{
+			"handle": "view-history-anchor",
+			"lookup": 
+			[
+				{
+					"type": "handle",
+					"detail": "menu-right-navigation"
+				},
+				{
+					"type": "css",
+					"detail": "li[id=\"ca-history\"]"
+				},
+				{
+					"type": "css",
+					"detail": "a"
+				}
+			]
+		},
+		{
+			"handle": "search-box",
+			"lookup": 
+			[
+				{
+					"type": "handle",
+					"detail": "menu-right-navigation"
+				},
+				{
+					"type": "css",
+					"detail": "div[id=\"p-search\"]"
+				},
+				{
+					"type": "css",
+					"detail": "input[id=\"searchInput\"]"
+				}
+			]
+		},
+				{
+			"handle": "search-button",
+			"lookup": 
+			[
+				{
+					"type": "handle",
+					"detail": "menu-right-navigation"
+				},
+				{
+					"type": "css",
+					"detail": "div[id=\"p-search\"]"
+				},
+				{
+					"type": "css",
+					"detail": "input[id=\"searchButton\"]"
+				}
+			]
+		}
+	],
+	"include-list": 
+	[
+	]
+}

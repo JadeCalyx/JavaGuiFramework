@@ -1,0 +1,10 @@
+{
+	"object-list":
+	[
+	],
+	"include-list": 
+	[
+		"navigation-menu",
+		"revision-history-items"
+	]
+}

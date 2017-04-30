@@ -6,8 +6,13 @@
 package com.blogspot.jadecalyx.webtools;
 
 import java.io.File;
+import java.io.FileReader;
 import java.nio.file.Files;
 import java.util.*;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
 
 /**
  *
@@ -21,7 +26,7 @@ public class jcAddressIndex {
     public jcAddressIndex(String site) throws Exception {
         _site = site;
 	_addresses = new HashMap<String, jcAddressSet>();
-        loadIndex(_site);
+        loadIndexFromJson(_site);
     }
     
     public jcAddressSet GetAddressSet(String handle) {
@@ -70,8 +75,42 @@ public class jcAddressIndex {
 		}
                 
     }
-    
-    
-    
-    
+	
+	private void loadIndexFromJson(String site) throws Exception {
+	
+        String s = System.getProperty("file.separator");
+        String runPath = System.getProperty("user.dir");
+		String fullPath = String.join(s, runPath, "SiteInfo", site, "AddressInfo", "addresses.json");
+		File f = new File(fullPath);
+		if (!f.isFile()) {
+			throw new Exception(String.format("loadIndex unable to find file for site: %s", site));
+		}
+		
+		//load json file
+		JSONParser parser = new JSONParser();
+        Object obj = parser.parse(new FileReader(fullPath));
+        JSONObject jsonObject =  (JSONObject) obj;
+		JSONArray addressList = (JSONArray) jsonObject.get("address-list");
+
+		for (int i=0; i < addressList.size(); i++ ) {
+			JSONObject address = (JSONObject) addressList.get(i);
+			_addresses.put(address.get("handle").toString(), new jcAddressSet(address.get("segment").toString(), address.get("mask").toString()));
+		}
+
+			
+			
+			
+            //Iterator<String> iterator = cars.iterator();
+            //while (iterator.hasNext()) {
+            // System.out.println(iterator.next());
+           // }
+    }
+		
+		
 }
+    
+    
+    
+    
+
+

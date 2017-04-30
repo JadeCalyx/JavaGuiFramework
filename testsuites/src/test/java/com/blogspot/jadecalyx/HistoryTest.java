@@ -7,9 +7,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import com.blogspot.jadecalyx.webtools.jcBrowserFactory;
 import com.blogspot.jadecalyx.webtools.jcBrowser;
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.Properties;
 import com.blogspot.jadecalyx.webtools.jcWebPage;
 import org.testng.Assert;
 import org.openqa.selenium.*;
@@ -44,17 +41,6 @@ public class HistoryTest {
         _browser.Close();
     }
     
-            /// <summary>
-        /// Validates that the main page seach performs as expected.
-        /// Stories: Wiki-101, Wiki-153
-        /// Bugs: Wiki-937
-        /// </summary>
-    //@Test
-    //[Category("GUI")]
-    //[Category("History")]
-    //[Description("This test determines if the history link takes you to the correct page.")]
-    //[TestCase("firefox")]
-    //[TestCase("chrome")]
     @Test
     public void OpenPageHistory() throws Exception
     {
@@ -68,25 +54,8 @@ public class HistoryTest {
         Assert.assertTrue(newPage.GetHandle().equals("view-history-page"),
             "Landed on wrong page: " );
     }
-/*
-        [Test]
-        [Category("GUI")]
-        [Category("History")]
-        [TestCase("chrome", "main-page", "limit-to-20-anchor", 20)]
-        [TestCase("chrome", "archery-page", "limit-to-50-anchor", 50)]
-        [TestCase("chrome", "main-page", "limit-to-100-anchor", 100)]
-        [TestCase("chrome", "archery-page", "limit-to-250-anchor", 250)]
-        [TestCase("chrome", "main-page", "limit-to-500-anchor", 500)]
-        [TestCase("firefox", "archery-page", "limit-to-20-anchor", 20)]
-        [TestCase("firefox", "main-page", "limit-to-50-anchor", 50)]
-        [TestCase("firefox", "archery-page", "limit-to-100-anchor", 100)]
-        [TestCase("firefox", "main-page", "limit-to-250-anchor", 250)]
-        [TestCase("firefox", "archery-page", "limit-to-500-anchor", 500)]
-        public void FilterHistoryPageListEntries(string browser, 
-            string subjectPage, string anchorToClick, int expectedCount)
-        {
-    */
-    @Test    
+
+	@Test    
     public void FilterHistoryPageListEntries() throws Exception {
         String browser = "chrome";
         String subjectPage = "archery-page";
@@ -107,12 +76,8 @@ public class HistoryTest {
         int count = listItems.size();
         Assert.assertTrue(count == expectedCount, "Wrong number of items. Expected {0}, Found {1}");
     }
-/*
-        [Test]
-        [Category("GUI")]
-        [Category("History")]
-*/
-    @Test
+
+	@Test
     public void HistoryOrderOldest()throws Exception
         {
         _browser = _browserFactory.GetNewBrowser("chrome");
@@ -167,12 +132,8 @@ public class HistoryTest {
         }
         Assert.assertTrue(error.length() == 0, error);
     }
-/*
-        [Test]
-        [Category("GUI")]
-        [Category("History")]
-*/
-        @Test
+
+	@Test
         public void HistoryOrderNewest()throws Exception
         {
             _browser = _browserFactory.GetNewBrowser("chrome");
@@ -222,8 +183,6 @@ public class HistoryTest {
                     error += "Dates out of order. upper date: {0}, lower date {1}";
             }        
             Assert.assertTrue(error.length() == 0, error);
-        }
-
-    
+        } 
     
 }

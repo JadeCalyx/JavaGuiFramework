@@ -1,0 +1,173 @@
+{
+	"object-list":
+	[
+		{
+			"handle": "rh-content",
+			"lookup":
+			[
+				{
+					"type": "css",
+					"detail": "div[id=\"content\"]"
+				}
+			]
+		},
+		{
+			"handle": "rh-body-content",
+			"lookup": 
+			[
+				{
+					"type": "handle",
+					"detail": "rh-content"
+				},
+				{
+					"type": "css",
+					"detail": "div[id=\"bodyContent\"]"
+				}
+			]
+		},
+		{
+			"handle": "newist-anchor",
+			"lookup": 
+			[
+				{
+					"type": "handle",
+					"detail": "rh-body-content"
+				},
+				{
+					"type": "css",
+					"detail": "a[class=\"mw-firstlink\"]"
+				}
+			]
+		},
+		{
+			"handle": "oldest-anchor",
+			"lookup": 
+			[
+				{
+					"type": "handle",
+					"detail": "rh-body-content"
+				},
+				{
+					"type": "css",
+					"detail": "a[class=\"mw-lastlink\"]"
+				}
+			]
+		},
+		{
+			"handle": "newer-500-anchor",
+			"lookup": 
+			[
+				{
+					"type": "handle",
+					"detail": "rh-body-content"
+				},
+				{
+					"type": "css",
+					"detail": "a[class=\"mw-prevlink\"]"
+				}
+			]
+		},
+		{
+			"handle": "older-500-anchor",
+			"lookup": 
+			[
+				{
+					"type": "handle",
+					"detail": "rh-body-content"
+				},
+				{
+					"type": "css",
+					"detail": "a[class=\"mw=nextlink\"]"
+				}
+			]
+		},
+		{
+			"handle": "limit-to-20-anchor",
+			"lookup": 
+			[
+				{
+					"type": "handle",
+					"detail": "rh-body-content"
+				},
+				{
+					"type": "css",
+					"detail": "a[class=\"mw-numlink\"][href*=\"limit=20&\"]"
+				}
+			]
+		},
+		{
+			"handle": "limit-to-50-anchor",
+			"lookup": 
+			[
+				{
+					"type": "handle",
+					"detail": "rh-body-content"
+				},
+				{
+					"type": "css",
+					"detail": "a[class=\"mw-numlink\"][href*=\"limit=50&\"]"
+				}
+			]
+		},
+		{
+			"handle": "limit-to-100-anchor",
+			"lookup": 
+			[
+				{
+					"type": "handle",
+					"detail": "rh-body-content"
+				},
+				{
+					"type": "css",
+					"detail": "a[class=\"mw-numlink\"][href*=\"limit=100&\"]"
+				}
+			]
+		},
+		{
+			"handle": "limit-to-250-anchor",
+			"lookup": 
+			[
+				{
+					"type": "handle",
+					"detail": "rh-body-content"
+				},
+				{
+					"type": "css",
+					"detail": "a[class=\"mw-numlink\"][href*=\"limit=250&\"]"
+				}
+			]
+		},
+		{
+			"handle": "limit-to-500-anchor",
+			"lookup": 
+			[
+				{
+					"type": "handle",
+					"detail": "rh-body-content"
+				},
+				{
+					"type": "css",
+					"detail": "a[class=\"mw-numlink\"][href*=\"limit=500&\"]"
+				}
+			]
+		},
+		{
+			"handle": "page-history-list",
+			"lookup": 
+			[
+				{
+					"type": "handle",
+					"detail": "rh-body-content"
+				},
+				{
+					"type": "css",
+					"detail": "ul[id=\"pagehistory\"]"
+				}
+			]
+		}
+	],
+	"include-list": 
+	[
+	]
+}
+
