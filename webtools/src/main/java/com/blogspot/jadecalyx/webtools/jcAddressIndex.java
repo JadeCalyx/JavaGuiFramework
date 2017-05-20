@@ -43,39 +43,6 @@ public class jcAddressIndex {
 	return "dummy";
     }
     
-    private void loadIndex(String site) throws Exception {
-		int type = 0;
-		int handle = 1;
-		int segment = 2;
-		int mask = 3;
-	
-        String s = System.getProperty("file.separator");
-        String runPath = System.getProperty("user.dir");
-		String fullPath = String.join(s, runPath, "SiteInfo", site, "AddressInfo", "addresses.tsv");
-		File f = new File(fullPath);
-		if (!f.isFile()) {
-			throw new Exception(String.format("loadIndex unable to find file for site: %s", site));
-		}
-	
-        List<String> lines = Files.readAllLines(f.toPath());
-		for(int i = 0; i < lines.size(); i++) {
-			String[] parts = lines.get(i).split("\t");
-			if (parts.length < 1) {
-			continue;
-			}
-			if (parts[type].equalsIgnoreCase("-")) {
-			continue;
-			}
-			if (parts[type].equalsIgnoreCase("+")) {
-				if (parts.length > 3) { //must have all parts to process, else skip
-					if (parts[segment].equals("empty-string")) {parts[segment] = "";}
-					_addresses.put(parts[handle], new jcAddressSet(parts[segment], parts[mask]));
-				}
-			}
-		}
-                
-    }
-	
 	private void loadIndexFromJson(String site) throws Exception {
 	
         String s = System.getProperty("file.separator");
@@ -97,13 +64,6 @@ public class jcAddressIndex {
 			_addresses.put(address.get("handle").toString(), new jcAddressSet(address.get("segment").toString(), address.get("mask").toString()));
 		}
 
-			
-			
-			
-            //Iterator<String> iterator = cars.iterator();
-            //while (iterator.hasNext()) {
-            // System.out.println(iterator.next());
-           // }
     }
 		
 		
